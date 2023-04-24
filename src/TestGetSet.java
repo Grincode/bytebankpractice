@@ -1,4 +1,4 @@
-package bytebank;
+
 
 public class TestGetSet {
 
@@ -16,7 +16,7 @@ public class TestGetSet {
         System.out.println(cuenta.getTitular().getNombre());
 
         cuenta.getTitular().setTelefono("9944332211");
-        
+        //ahora en dos lineas
         Cliente titular = cuenta.getTitular();
         titular.setTelefono("9944332211");
 
