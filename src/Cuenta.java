@@ -1,32 +1,59 @@
 public class Cuenta {
 
-	double saldo;
-	int agencia;
-	int numero;
-	String titular;
+	private double saldo;
+    private int agencia;
+    private int numero;
+    private Cliente titular;
 
-	public void deposita(double valor) {
+    public void deposita(double valor) {
+        this.saldo = this.saldo + valor;
+    }
 
-		this.saldo += valor;
-	}
+    public boolean saca(double valor) {
+        if(this.saldo >= valor) {
+            this.saldo -= valor;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public boolean saca(double valor) {
+    public boolean transfiere(double valor, Cuenta destino) {
+        if(this.saldo >= valor) {
+            this.saldo -= valor;
+            destino.deposita(valor);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		if (this.saldo >= valor) {
-			this.saldo -= valor;
-			return true;
-		} else {
-			return false;
-		}
-	}
+    public double getSaldo() {
+        return saldo;
+    }
 
-	public boolean transfiere(double valor, Cuenta destino) {
+    public int getAgencia() {
+        return agencia;
+    }
 
-		if (this.saldo >= valor) {
-			this.saldo -= valor;
-			destino.deposita(valor);
-			return true;
-		}
-		return false;
-	}
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public Cliente getTitular() {
+        return titular;
+    }
+
+    public void setTitular(Cliente titular) {
+        this.titular = titular;
+    }
+
 }
